@@ -1,0 +1,41 @@
+<div class="image_slider">
+  <div class="title">Image Slider</div>
+  <main class="image_slider_main skeleton">
+    <ng-container *ngFor="let image of images; let idx = index">
+      <img
+        class="image_slider_main_img"
+        [style.--translateIdx]="imageIdx - idx"
+        [src]="image.download_url"
+        [alt]="image.author"
+      />
+    </ng-container>
+    <div class="image_slider_main_btns">
+      <button
+        class="image_slider_main_btns_left cursor"
+        (click)="sliderBtn(-1)"
+        matTooltip="Previous Image"
+        aria-label="Previous Image"
+      >
+        <<
+      </button>
+      <button
+        class="image_slider_main_btns_right cursor"
+        (click)="sliderBtn(1)"
+        matTooltip="Next Image"
+        aria-label="Next Image"
+      >
+        >>
+      </button>
+    </div>
+    <div class="image_slider_main_dots">
+      <ng-container *ngFor="let image of images; let idx = index">
+        <button
+          class="image_slider_main_dots_button"
+          [attr.aria-label]="'Select {{idx}}th Image'"
+          [ngClass]="{ image_slider_main_dots_selected: idx === imageIdx }"
+          (click)="selectImage(idx)"
+        ></button>
+      </ng-container>
+    </div>
+  </main>
+</div>
