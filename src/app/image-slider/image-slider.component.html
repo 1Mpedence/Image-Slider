@@ -36,6 +36,7 @@
           [attr.aria-label]="'Select {{idx}}th Image'"
           [ngClass]="{ image_slider_main_dots_selected: idx === imageIdx }"
           (click)="selectImage(idx)"
+          [class.toggled]="automaticTansition"
         ></button>
       </ng-container>
     </div>

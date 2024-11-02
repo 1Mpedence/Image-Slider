@@ -22,9 +22,10 @@ button {
     color: white;
     font-size: xxx-large;
     font-weight: 700;
+    transition: transform 0.1s ease;
   
     &:active{
-      transform: translateY(4px);
+      transform: translateY(2px);
     }
   }
 }
@@ -65,7 +66,6 @@ button {
     button {
       border: 0;
       background: transparent;
-      color: white;
       color: rgba(255, 255, 255, 0.5);
 
       &:hover {
@@ -96,16 +96,24 @@ button {
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.5);
       transition: background-color 300ms;
+
+      &.toggled{
+        background-color: rgb(127, 255, 212, 0.6);
+      }
     }
 
     &_selected {
-      background-color: #fff;
+      background-color: rgb(255, 255, 255);
+
+      &.toggled{
+        background-color: rgb(127, 255, 212);
+      }
     }
   }
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, rgb(240, 240, 240) 25%, rgb(224, 224, 224) 50%, rgb(240, 240, 240) 75%);
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
 }
