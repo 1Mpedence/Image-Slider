@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-image-slider',
@@ -41,10 +41,23 @@ export class ImageSliderComponent implements OnInit {
     },
   ];
 
+  automaticTansition = false;
+
+  toggleInterval?: ReturnType<typeof setInterval>;
+
   ngOnInit(): void {
     this.images.forEach((image, idx) => {
       image.left = idx * 100;
     });
+  }
+
+  onToggleChange(){
+    this.automaticTansition = !this.automaticTansition;
+    if(this.automaticTansition){
+      this.toggleInterval = setInterval(() => this.sliderBtn(1), 2000);
+    } else {
+      clearInterval(this.toggleInterval);
+    }
   }
 
   sliderBtn(dir: -1 | 1) {

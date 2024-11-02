@@ -1,5 +1,7 @@
 <div class="image_slider">
-  <div class="title">Image Slider</div>
+  <div class="title">
+    <button class="title_button cursor" (click)="onToggleChange()" matTooltip="Toggle Automatic Transition">Image Slider</button>
+  </div>
   <main class="image_slider_main skeleton box-shadow">
     <ng-container *ngFor="let image of images; let idx = index">
       <img
